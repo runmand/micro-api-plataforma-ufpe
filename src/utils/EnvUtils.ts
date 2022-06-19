@@ -1,4 +1,5 @@
 export const {
+  ENV,
   PORT,
   RDS_SBUFPE_SERVER_HOST,
   RDS_SBUFPE_SERVER_DB_PORT,
@@ -6,4 +7,5 @@ export const {
   RDS_SBUFPE_SERVER_PWD,
   RDS_SBUFPE_SERVER_DB,
   ARGON2_SECRET,
-} = process .env
+  PRINT_ROUTES_MAP,
+} = process.env
