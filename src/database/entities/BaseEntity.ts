@@ -1,4 +1,4 @@
-import moment from "moment";
+import { now } from "moment";
 import {
   Column,
   Entity,
@@ -11,7 +11,7 @@ export default class BaseEntity {
   @PrimaryGeneratedColumn()
   id: ID;
 
-  @Column({ name: 'created', nullable: false, default: moment().toDate(), unique: false })
+  @Column({ name: 'created', nullable: false, default: now(), unique: false })
   created: Date
 
   @Column({ name: 'deleted', nullable: true, default: null, unique: false })
