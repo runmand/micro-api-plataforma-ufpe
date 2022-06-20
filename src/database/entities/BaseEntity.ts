@@ -1,6 +1,6 @@
-import { now } from "moment";
 import {
   Column,
+  CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn
 } from "typeorm";
@@ -11,9 +11,9 @@ export default class BaseEntity {
   @PrimaryGeneratedColumn()
   id: ID;
 
-  @Column({ name: 'created', nullable: false, default: now(), unique: false })
-  created: Date
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date
 
-  @Column({ name: 'deleted', nullable: true, default: null, unique: false })
-  deleted: Date
+  @Column({ name: 'deleted_at' })
+  deletedAt: Date
 }
