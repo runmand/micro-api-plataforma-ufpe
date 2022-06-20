@@ -6,7 +6,7 @@ import {
 } from "typeorm";
 import { ID } from "../../types";
 
-@Entity({ name: 'base_entity' })
+@Entity({ name: 'BaseEntity' })
 export default class BaseEntity {
   @PrimaryGeneratedColumn()
   id: ID;
