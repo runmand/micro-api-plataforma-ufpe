@@ -23,11 +23,11 @@ export default class UsersRegisters extends BaseEntity {
   @Column({ name: 'json_data', nullable: false, unique: false, type: 'jsonb' })
   jsonData: JSON;
 
-  @ManyToOne(() => UsersTypes, { nullable: false })
+  @ManyToOne(() => UsersTypes, { nullable: false, cascade: true, onDelete: 'RESTRICT', onUpdate: 'CASCADE' })
   @JoinColumn({ name: 'type_id' })
   typeId: UsersTypes;
 
-  @OneToMany(() => UsersAdresses, address => address.id, { nullable: false })
+  @OneToMany(() => UsersAdresses, address => address.id, { nullable: false, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
   @JoinColumn({ name: 'users__address' })
   usersAdresses: UsersAdresses[];
 }

@@ -24,7 +24,7 @@ export default class UsersAdresses extends BaseEntity {
   @Column({ name: 'complement', nullable: true, unique: false, length: 32 })
   complement: string;
 
-  @ManyToOne(() => UsersRegisters, { nullable: false, cascade: ['insert', 'soft-remove', 'update'] })
+  @ManyToOne(() => UsersRegisters, { nullable: false, cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' })
   @JoinColumn({ name: 'users__registers_id' })
   usersRegistersId: UsersRegisters;
 }
