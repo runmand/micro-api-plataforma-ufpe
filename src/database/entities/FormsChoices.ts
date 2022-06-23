@@ -7,7 +7,7 @@ import {
   OneToMany
 } from "typeorm";
 import FormsChoiceTypes from "./FormsChoiceTypes";
-// import FormsQuestions from "./FormsQuestions";
+import FormsQuestions from "./FormsQuestions";
 
 @Entity({ name: 'forms__choices' })
 export default class FormsChoices extends BaseEntity {
@@ -21,7 +21,7 @@ export default class FormsChoices extends BaseEntity {
   @JoinColumn({ name: 'forms__choice_types_id' })
   typeId: FormsChoiceTypes;
 
-  // @OneToMany(() => FormsQuestions, question => question.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
-  // @JoinColumn({ name: 'questions' })
-  // questions: FormsQuestions[]
+  @OneToMany(() => FormsQuestions, question => question.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
+  @JoinColumn({ name: 'questions' })
+  questions: FormsQuestions[]
 }
