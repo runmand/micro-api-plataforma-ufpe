@@ -1,4 +1,3 @@
-import UsersRegisters from "./UsersRegisters";
 import BaseEntity from "./BaseEntity";
 import {
   Entity,
@@ -9,6 +8,7 @@ import {
 } from "typeorm";
 import FormsChoices from "./FormsChoices";
 import FormsQuestionsFormsQuestions from "./FormsQuestionsFormsQuestions";
+import FormsQuestionDomains from "./FormsQuestionDomains";
 
 @Entity({ name: 'forms__questions' })
 export default class FormsQuestions extends BaseEntity {
@@ -29,4 +29,8 @@ export default class FormsQuestions extends BaseEntity {
   @OneToMany(() => FormsQuestionsFormsQuestions, FQFQ => FQFQ.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
   @JoinColumn({ name: 'children' })
   children: FormsQuestionsFormsQuestions[]
+
+  @ManyToOne(() => FormsQuestionDomains, { nullable: false, cascade: true, onDelete: 'RESTRICT', onUpdate: 'CASCADE' })
+  @JoinColumn({ name: 'forms__question_domains_id' })
+  formsQuestionDomainsId: FormsQuestionDomains;
 }
