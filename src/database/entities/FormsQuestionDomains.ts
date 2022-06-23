@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 import FormsQuestions from "./FormsQuestions";
 
-@Entity({ name: 'forms__choice_types' })
+@Entity({ name: 'forms__question_domains' })
 export default class FormsQuestionDomains extends BaseEntity {
   @Column({ name: 'cod', nullable: false, unique: true, length: 3 })
   cod: string;
