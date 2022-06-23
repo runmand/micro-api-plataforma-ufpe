@@ -8,7 +8,7 @@ import {
   OneToMany
 } from "typeorm";
 import FormsChoices from "./FormsChoices";
-// import FormsQuestionsFormsQuestions from "./FormsQuestionsFormsQuestions";
+import FormsQuestionsFormsQuestions from "./FormsQuestionsFormsQuestions";
 
 @Entity({ name: 'forms__questions' })
 export default class FormsQuestions extends BaseEntity {
@@ -22,11 +22,11 @@ export default class FormsQuestions extends BaseEntity {
   @JoinColumn({ name: 'forms__choices_id' })
   choiceId: FormsChoices;
 
-  // @OneToMany(() => FormsQuestionsFormsQuestions, FQFQ => FQFQ.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
-  // @JoinColumn({ name: 'parents' })
-  // parents: FormsQuestionsFormsQuestions[]
+  @OneToMany(() => FormsQuestionsFormsQuestions, FQFQ => FQFQ.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
+  @JoinColumn({ name: 'parents' })
+  parents: FormsQuestionsFormsQuestions[]
 
-  // @OneToMany(() => FormsQuestionsFormsQuestions, FQFQ => FQFQ.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
-  // @JoinColumn({ name: 'children' })
-  // children: FormsQuestionsFormsQuestions[]
+  @OneToMany(() => FormsQuestionsFormsQuestions, FQFQ => FQFQ.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
+  @JoinColumn({ name: 'children' })
+  children: FormsQuestionsFormsQuestions[]
 }
