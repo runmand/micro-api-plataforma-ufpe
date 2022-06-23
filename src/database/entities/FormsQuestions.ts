@@ -9,6 +9,7 @@ import {
 import FormsChoices from "./FormsChoices";
 import FormsQuestionsFormsQuestions from "./FormsQuestionsFormsQuestions";
 import FormsQuestionDomains from "./FormsQuestionDomains";
+import FormsQuestionsFormsRegisters from "./FormsQuestionsFormsRegisters";
 
 @Entity({ name: 'forms__questions' })
 export default class FormsQuestions extends BaseEntity {
@@ -33,4 +34,8 @@ export default class FormsQuestions extends BaseEntity {
   @ManyToOne(() => FormsQuestionDomains, { nullable: false, cascade: true, onDelete: 'RESTRICT', onUpdate: 'CASCADE' })
   @JoinColumn({ name: 'forms__question_domains_id' })
   formsQuestionDomainsId: FormsQuestionDomains;
+
+  @OneToMany(() => FormsQuestionsFormsRegisters, FQFR => FQFR.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
+  @JoinColumn({ name: 'forms__questions_forms__registers_id' })
+  FormsQuestionsFormsRegistersId: FormsQuestionsFormsRegisters[]
 }
