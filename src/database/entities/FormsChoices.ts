@@ -11,8 +11,8 @@ import FormsQuestions from "./FormsQuestions";
 
 @Entity({ name: 'forms__choices' })
 export default class FormsChoices extends BaseEntity {
-  @Column({ name: 'items', nullable: false, unique: false })
-  items: string; //TODO verificar tipo
+  @Column({ name: 'items', nullable: false, unique: false, array: true, type: 'character varying' })
+  items: string[];
 
   @Column({ name: 'answer', nullable: false, unique: false, length: 256 })
   answer: string;
