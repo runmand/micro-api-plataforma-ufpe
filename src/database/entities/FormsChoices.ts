@@ -18,7 +18,7 @@ export default class FormsChoices extends BaseEntity {
   answer: string;
 
   @ManyToOne(() => FormsChoiceTypes, { nullable: false, cascade: true, onDelete: 'RESTRICT', onUpdate: 'CASCADE' })
-  @JoinColumn({ name: 'forms__choice_types_id' })
+  @JoinColumn({ name: 'type_id' })
   typeId: FormsChoiceTypes;
 
   @OneToMany(() => FormsQuestions, question => question.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })

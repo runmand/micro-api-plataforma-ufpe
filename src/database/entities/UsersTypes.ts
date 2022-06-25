@@ -13,6 +13,6 @@ export default class UsersTypes extends BaseEntity {
   description: string;
 
   @OneToMany(() => UsersRegisters, register => register.id, { nullable: true, cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' })
-  @JoinColumn({ name: 'users__registers' })
-  usersRegisters: UsersRegisters[];
+  @JoinColumn({ name: 'users' })
+  users: UsersRegisters[];
 }

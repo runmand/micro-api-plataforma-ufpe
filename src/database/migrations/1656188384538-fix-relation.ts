@@ -1,7 +1,7 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class addTableFormsRegisters1655951832156 implements MigrationInterface {
-    name = 'addTableFormsRegisters1655951832156'
+export class fixRelation1656188384538 implements MigrationInterface {
+    name = 'fixRelation1656188384538'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE "forms__questions_forms__registers" ("id" SERIAL NOT NULL, "created_at" TIMESTAMP NOT NULL DEFAULT now(), "deleted_at" TIMESTAMP NOT NULL, "form_id" integer NOT NULL, "question_id" integer NOT NULL, CONSTRAINT "PK_da94afe471d46bd53c9dd6041ab" PRIMARY KEY ("id"))`);

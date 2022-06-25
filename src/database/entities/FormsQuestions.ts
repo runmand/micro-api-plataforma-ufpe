@@ -20,7 +20,7 @@ export default class FormsQuestions extends BaseEntity {
   score: number[];
 
   @ManyToOne(() => FormsChoices, { nullable: false, cascade: true, onDelete: 'RESTRICT', onUpdate: 'CASCADE' })
-  @JoinColumn({ name: 'forms__choices_id' })
+  @JoinColumn({ name: 'choice_id' })
   choiceId: FormsChoices;
 
   @OneToMany(() => FormsQuestionsFormsQuestions, FQFQ => FQFQ.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
@@ -32,10 +32,10 @@ export default class FormsQuestions extends BaseEntity {
   children: FormsQuestionsFormsQuestions[]
 
   @ManyToOne(() => FormsQuestionDomains, { nullable: false, cascade: true, onDelete: 'RESTRICT', onUpdate: 'CASCADE' })
-  @JoinColumn({ name: 'forms__question_domains_id' })
-  formsQuestionDomainsId: FormsQuestionDomains;
+  @JoinColumn({ name: 'domains_id' })
+  domainId: FormsQuestionDomains;
 
   @OneToMany(() => FormsQuestionsFormsRegisters, FQFR => FQFR.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
   @JoinColumn({ name: 'forms__questions_forms__registers_id' })
-  FormsQuestionsFormsRegistersId: FormsQuestionsFormsRegisters[]
+  FormsQuestionsFormsRegisters: FormsQuestionsFormsRegisters[]
 }

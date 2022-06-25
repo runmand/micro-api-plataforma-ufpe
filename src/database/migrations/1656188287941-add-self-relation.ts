@@ -1,7 +1,7 @@
 import {MigrationInterface, QueryRunner} from "typeorm";
 
-export class addTableFormsQuestionsParents1655949425752 implements MigrationInterface {
-    name = 'addTableFormsQuestionsParents1655949425752'
+export class addSelfRelation1656188287941 implements MigrationInterface {
+    name = 'addSelfRelation1656188287941'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.query(`CREATE TABLE "forms__questions_forms__questions" ("id" SERIAL NOT NULL, "created_at" TIMESTAMP NOT NULL DEFAULT now(), "deleted_at" TIMESTAMP NOT NULL, "parent_id" integer, "child_id" integer, CONSTRAINT "PK_36ae511fb330160e1a196ea22c7" PRIMARY KEY ("id"))`);

@@ -16,6 +16,6 @@ export default class FormsRegisters extends BaseEntity {
   message: string;
 
   @OneToMany(() => FormsQuestionsFormsRegisters, FQFR => FQFR.id, { nullable: false, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
-  @JoinColumn({ name: 'forms__questions_forms__registers_id' })
-  FormsQuestionsFormsRegistersId: FormsQuestionsFormsRegisters[]
+  @JoinColumn({ name: 'forms__questions_forms__registers' })
+  FormsQuestionsFormsRegisters: FormsQuestionsFormsRegisters[]
 }

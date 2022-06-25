@@ -25,6 +25,6 @@ export default class UsersAdresses extends BaseEntity {
   complement: string;
 
   @ManyToOne(() => UsersRegisters, { nullable: false, cascade: true, onDelete: 'CASCADE', onUpdate: 'CASCADE' })
-  @JoinColumn({ name: 'users__registers_id' })
-  usersRegistersId: UsersRegisters;
+  @JoinColumn({ name: 'user_id' })
+  userId: UsersRegisters;
 }

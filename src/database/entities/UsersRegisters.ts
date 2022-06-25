@@ -8,6 +8,7 @@ import {
   ManyToOne,
   OneToMany
 } from "typeorm";
+import UsersAnswers from "./UsersAnswers";
 
 @Entity({ name: 'users__registers' })
 export default class UsersRegisters extends BaseEntity {
@@ -28,6 +29,10 @@ export default class UsersRegisters extends BaseEntity {
   typeId: UsersTypes;
 
   @OneToMany(() => UsersAdresses, address => address.id, { nullable: false, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
-  @JoinColumn({ name: 'users__address' })
-  usersAdresses: UsersAdresses[];
+  @JoinColumn({ name: 'adresses' })
+  adresses: UsersAdresses[];
+
+  @OneToMany(() => UsersAnswers, answer => answer.id, { nullable: true, cascade: true, onDelete: 'NO ACTION', onUpdate: 'CASCADE' })
+  @JoinColumn({ name: 'answers' })
+  answers: UsersAnswers[];
 }
