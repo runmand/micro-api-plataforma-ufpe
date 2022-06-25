@@ -19,6 +19,9 @@ export default class FormsQuestions extends BaseEntity {
   @Column({ name: 'score', nullable: false, unique: false, type: 'int4range' })
   score: number[];
 
+  @Column({ name: 'recommendation_message', nullable: true, unique: false, length: 256 })
+  recommendationMessage: string;
+
   @ManyToOne(() => FormsChoices, { nullable: false, cascade: true, onDelete: 'RESTRICT', onUpdate: 'CASCADE' })
   @JoinColumn({ name: 'choice_id' })
   choiceId: FormsChoices;
